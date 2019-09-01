@@ -6,6 +6,7 @@ TagManager:
   tags:
   - asteroid
   - background
+  - projectile
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,9 @@ TagManager:
     locked: 0
   - name: background
     uniqueID: 273890809
+    locked: 0
+  - name: projectiles
+    uniqueID: 1803662559
     locked: 0
   - name: Player
     uniqueID: 4033654483

@@ -4,31 +4,37 @@ using UnityEngine;
 
 public class spaceshipController : MonoBehaviour
 {
-    public Transform prefab;
-    public Animator animator;
+    private Transform player;
+    private Animator animator;
     public float speed = 5.0f;
+    public GameObject beam;
+    private Vector3 mouse;
 
     // Start is called before the first frame update
     void Start()
     {
-        prefab = GameObject.Find("spaceship").GetComponent<Transform>();
-        animator = GameObject.Find("spaceship").GetComponent<Animator>();
-
+        player = GetComponent<Transform>();
+        animator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         //Turning according the cursor position
-        /*Debug.Log(Input.mousePosition);
+        mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 mousePos = Input.mousePosition;
-
-        Vector2 direction = new Vector2(
-            mousePos.x - prefab.position.x,
-            mousePos.y - prefab.position.y
+        Vector3 direction = new Vector3(
+            mouse.x - player.position.x,
+            mouse.y - player.position.y
             );
-        prefab.up = direction;*/
+        player.up = direction;
+
+        //Fire
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(beam, player.position, Quaternion.identity);
+        }
     }
     void FixedUpdate()
     {
@@ -40,17 +46,12 @@ public class spaceshipController : MonoBehaviour
             Vector3 tempVect = new Vector3(h, v, 0);
             tempVect = tempVect.normalized * speed * Time.deltaTime;
 
-            prefab.transform.position += tempVect;
+            player.transform.position += tempVect;
             animator.SetBool("moving", true);
         }
         else
         {
             animator.SetBool("moving", false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            //Fire();
         }
     }
 }

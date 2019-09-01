@@ -21,12 +21,14 @@ public class statusScript : MonoBehaviour
         GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>().text = "Score: " + score.ToString();
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (col.gameObject.tag == "asteroid")//Check whether the collision object is an asteroid
+        if (collision.gameObject.tag == "asteroid")//Check whether the collision object is an asteroid
         {
             HP -= 1;
-            Destroy(col.gameObject);
+            collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            collision.gameObject.GetComponent<AudioSource>().Play();
+            Destroy(collision.gameObject, 1.0f);
             Invoke("endGame", 3);//Delay for 3 seconds
         }
     }
