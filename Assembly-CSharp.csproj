@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\asteroid.cs" />
     <Compile Include="Assets\Scripts\menuManager.cs" />
     <Compile Include="Assets\Scripts\projectile.cs" />
+    <Compile Include="Assets\Scripts\soundManager.cs" />
     <Compile Include="Assets\Scripts\spaceshipController.cs" />
     <Compile Include="Assets\Scripts\spawning.cs" />
     <Compile Include="Assets\Scripts\statusScript.cs" />

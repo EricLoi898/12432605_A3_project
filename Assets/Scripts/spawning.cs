@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class spawning : MonoBehaviour
 {
+    public float spawnSpeed = 0.1f;
     private Vector3 spawnPos;
     private int[] x_axes = {10, -10};
     private int[] y_axes = {6, -6};
@@ -32,6 +33,6 @@ public class spawning : MonoBehaviour
             spawnPos = new Vector3(Random.Range(-10f, 10f), y_axes[Random.Range(0, 2)]);
         }      
         Instantiate(prefab, spawnPos, Quaternion.identity);
-        Invoke("spawn", 1);
+        Invoke("spawn", spawnSpeed);
     }
 }

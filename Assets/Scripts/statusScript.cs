@@ -8,10 +8,11 @@ public class statusScript : MonoBehaviour
 {
     public int HP = 5;
     public int score = 0;
+    public GameObject explosionSound;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class statusScript : MonoBehaviour
         {
             HP -= 1;
             collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            collision.gameObject.GetComponent<AudioSource>().Play();
+            Instantiate(explosionSound).GetComponent<AudioSource>().Play();//Instantiate the soundManager gameobject then play it
             Destroy(collision.gameObject, 0.2f);
             Invoke("endGame", 2);//Delay for 3 seconds
         }
