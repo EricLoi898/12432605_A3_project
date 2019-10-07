@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class spawning : MonoBehaviour
 {
+    private Vector3 spawnPos;
+    private int[] x_axes = {10, -10};
+    private int[] y_axes = {6, -6};
+
     public GameObject prefab;
     // Start is called before the first frame update
     void Start()
@@ -19,8 +23,15 @@ public class spawning : MonoBehaviour
     
     void spawn()
     {
-        
-        Instantiate(prefab, new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 4f), 0), Quaternion.identity);
-        Invoke("spawn",2);
+        if(Random.Range(0,2)== 0)
+        {
+            spawnPos = new Vector3(x_axes[Random.Range(0, 2)], Random.Range(-6f, 6f));
+        }
+        else
+        {
+            spawnPos = new Vector3(Random.Range(-10f, 10f), y_axes[Random.Range(0, 2)]);
+        }      
+        Instantiate(prefab, spawnPos, Quaternion.identity);
+        Invoke("spawn", 0.1f);
     }
 }
