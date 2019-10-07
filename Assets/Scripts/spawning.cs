@@ -32,6 +32,6 @@ public class spawning : MonoBehaviour
             spawnPos = new Vector3(Random.Range(-10f, 10f), y_axes[Random.Range(0, 2)]);
         }      
         Instantiate(prefab, spawnPos, Quaternion.identity);
-        Invoke("spawn", 0.1f);
+        Invoke("spawn", 1);
     }
 }

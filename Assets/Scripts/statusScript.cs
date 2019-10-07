@@ -28,8 +28,8 @@ public class statusScript : MonoBehaviour
             HP -= 1;
             collision.gameObject.GetComponent<CircleCollider2D>().enabled = false;
             collision.gameObject.GetComponent<AudioSource>().Play();
-            Destroy(collision.gameObject, 1.0f);
-            Invoke("endGame", 3);//Delay for 3 seconds
+            Destroy(collision.gameObject, 0.2f);
+            Invoke("endGame", 2);//Delay for 3 seconds
         }
     }
 
