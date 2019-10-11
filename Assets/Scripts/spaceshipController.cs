@@ -8,6 +8,7 @@ public class spaceshipController : MonoBehaviour
     private Animator animator;
     public float speed = 5.0f;
     public GameObject beam;
+    public GameObject explosionSound;
     private Vector3 mouse;
 
     // Start is called before the first frame update
@@ -51,7 +52,10 @@ public class spaceshipController : MonoBehaviour
         //Fire
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(beam, player.position, Quaternion.identity);
+            Instantiate(beam, player.position, Quaternion.identity);//Create a projectile
+            AudioSource sound = Instantiate(explosionSound).GetComponent<AudioSource>();//Instantiate the soundManager gameobject
+            sound.volume = 0.15f;
+            sound.pitch = 2f;
         }
     }
 }

@@ -9,7 +9,7 @@ public class spawning : MonoBehaviour
     private int[] x_axes = {10, -10};
     private int[] y_axes = {6, -6};
 
-    public GameObject prefab;
+    public GameObject[] prefabs;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +32,7 @@ public class spawning : MonoBehaviour
         {
             spawnPos = new Vector3(Random.Range(-10f, 10f), y_axes[Random.Range(0, 2)]);
         }      
-        Instantiate(prefab, spawnPos, Quaternion.identity);
+        Instantiate(prefabs[Random.Range(0,3)], spawnPos, Quaternion.identity);
         //Call the function itself after a period   
         Invoke("spawn", spawnSpeed);
     }

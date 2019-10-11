@@ -43,4 +43,9 @@ public class status : MonoBehaviour
             SceneManager.LoadScene("result");
         }
     }
+
+    public void addScore()
+    {
+        score += 10;
+    }
 }

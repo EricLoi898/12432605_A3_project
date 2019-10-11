@@ -7,9 +7,25 @@ public class asteroid : MonoBehaviour
     private Vector3 spawnPos;
     private Vector3 target;
     private float speed = 5f;
+    private int HP;
+    private status status;
+    private string sprite_name;
     // Start is called before the first frame update
     void Start()
     {
+        status = GameObject.Find("spaceship").GetComponent<status>();
+        sprite_name = gameObject.GetComponent<SpriteRenderer>().sprite.name;
+        if (sprite_name == "asteroid_0")
+        {
+            HP = 3;
+        }else if (sprite_name == "asteroid_1")
+        {
+            HP = 2;
+        }else if (sprite_name == "asteroid_2")
+        {
+            HP = 1;
+        }
+
         spawnPos = transform.position;
         //Move asteroids to the other side of the map
         if (spawnPos.x == 10)
@@ -37,5 +53,14 @@ public class asteroid : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (HP == 0)
+        {
+            status.addScore();
+            Destroy(gameObject);
+        }
+
+    }
+    public void takeDamage() {
+        HP--;
     }
 }
