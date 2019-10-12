@@ -55,7 +55,22 @@ public class asteroid : MonoBehaviour
         }
         if (HP == 0)
         {
-
+            //Add score based on the size of asteroids
+            if (sprite_name == "asteroids_0")
+            {
+                status.addScore(50);
+                Destroy(gameObject);
+            }
+            else if (sprite_name == "asteroids_1")
+            {
+                status.addScore(30);
+                Destroy(gameObject);
+            }
+            else if (sprite_name == "asteroids_2")
+            {
+                status.addScore(10);
+                Destroy(gameObject);
+            }
         }
 
     }
