@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class status : MonoBehaviour
 {
     public int HP = 5;
-    public int score = 0;
+    public static int score = 0;
     public GameObject explosionSound;
     private UnityEngine.UI.Text HP_txt;
     private UnityEngine.UI.Text score_txt;
@@ -21,8 +21,14 @@ public class status : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Update the UI text
         HP_txt.text = "HP: "+ HP.ToString();
         score_txt.text = "Score: " + score.ToString();
+        //Press ESC to leave the game
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("result");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -44,8 +50,8 @@ public class status : MonoBehaviour
         }
     }
 
-    public void addScore()
+    public void addScore(int mark)
     {
-        score += 10;
+        score += mark;
     }
 }

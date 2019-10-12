@@ -55,8 +55,7 @@ public class asteroid : MonoBehaviour
         }
         if (HP == 0)
         {
-            status.addScore();
-            Destroy(gameObject);
+
         }
 
     }
