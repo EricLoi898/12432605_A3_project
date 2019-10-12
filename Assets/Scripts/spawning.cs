@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class spawning : MonoBehaviour
 {
-    private float spawnSpeed = 0.8f;
+    private float spawnSpeed = 1f;
     private Vector3 spawnPos;
     private int[] x_axes = {10, -10};
     private int[] y_axes = {6, -6};

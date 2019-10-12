@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class status : MonoBehaviour
 {
-    public int HP = 5;
+    private int HP = 10;
     public static int score = 0;
     public GameObject explosionSound;
     private UnityEngine.UI.Text HP_txt;
@@ -38,7 +38,7 @@ public class status : MonoBehaviour
             HP -= 1;
             Instantiate(explosionSound);//Instantiate the soundManager gameobject
             Destroy(collision.gameObject, 0.2f);
-            Invoke("endGame", 2);//End game after 2 seconds
+            Invoke("endGame", 3);//End game after 3 seconds
         }
     }
 
@@ -46,12 +46,12 @@ public class status : MonoBehaviour
     {
         if (HP <= 0)
         {
-            SceneManager.LoadScene("result");
+            SceneManager.LoadScene("result");//Go to result page
         }
     }
 
     public void addScore(int mark)
     {
-        score += mark;
+        score += mark;//Increment the score by passed in mark
     }
 }

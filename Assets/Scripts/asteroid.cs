@@ -10,6 +10,7 @@ public class asteroid : MonoBehaviour
     private int HP;
     private status status;
     private string sprite_name;
+    public GameObject[] prefabs;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,17 +57,21 @@ public class asteroid : MonoBehaviour
         if (HP == 0)
         {
             //Add score based on the size of asteroids
-            if (sprite_name == "asteroids_0")
+            if (sprite_name == "asteroid_0")
             {
                 status.addScore(50);
+                crack(0);
+                crack(1);
                 Destroy(gameObject);
             }
-            else if (sprite_name == "asteroids_1")
+            else if (sprite_name == "asteroid_1")
             {
                 status.addScore(30);
+                crack(0);
+                crack(0);
                 Destroy(gameObject);
             }
-            else if (sprite_name == "asteroids_2")
+            else if (sprite_name == "asteroid_2")
             {
                 status.addScore(10);
                 Destroy(gameObject);
@@ -149,6 +154,11 @@ public class asteroid : MonoBehaviour
                     break;
             }
         }
+    }
+
+    void crack(int code)
+    {
+        Instantiate(prefabs[0], transform.position, Quaternion.identity);//Crack into smaller asteroids
     }
 
     public void takeDamage() {
