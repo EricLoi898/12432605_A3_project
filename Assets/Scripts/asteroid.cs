@@ -60,6 +60,83 @@ public class asteroid : MonoBehaviour
         }
 
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "asteroid") { //Bounce off each other to random position
+            int code = Random.Range(0, 4);
+
+            string collision_name = collision.gameObject.GetComponent<SpriteRenderer>().sprite.name;
+            string obj_name = gameObject.GetComponent<SpriteRenderer>().sprite.name;
+            determineCol(obj_name, collision_name);
+            switch (code)
+            {
+                case 0:
+                    target = new Vector3(-10, Random.Range(-6f, 6f), 0);
+                    break;
+                case 1:
+                    target = new Vector3(10, Random.Range(-6f, 6f), 0);
+                    break;
+                case 2:
+                    target = new Vector3(Random.Range(-10f, 10f), -6, 0);
+                    break;
+                case 3:
+                    target = new Vector3(Random.Range(-10f, 10f), 6, 0);
+                    break;
+            }
+        }
+    }
+
+    private void determineCol(string obj_name, string collision_name)
+    {
+        //Change the speed of the asteroids based on the size of them
+        if (obj_name == "asteroids_0")
+        {
+            switch (collision_name)
+            {
+                case "asteroids_0":
+                    speed = 5f;
+                    break;
+                case "asteroids_1":
+                    speed = 4f;
+                    break;
+                case "asteroids_2":
+                    speed = 3f;
+                    break;
+            }
+        }
+        else if (obj_name == "asteroids_1")
+        {
+            switch (collision_name)
+            {
+                case "asteroids_0":
+                    speed = 6f;
+                    break;
+                case "asteroids_1":
+                    speed = 5f;
+                    break;
+                case "asteroids_2":
+                    speed = 4f;
+                    break;
+            }
+        }
+        else if (obj_name == "asteroids_2")
+        {
+            switch (collision_name)
+            {
+                case "asteroids_0":
+                    speed = 7f;
+                    break;
+                case "asteroids_1":
+                    speed = 6f;
+                    break;
+                case "asteroids_2":
+                    speed = 5f;
+                    break;
+            }
+        }
+    }
+
     public void takeDamage() {
         HP--;
     }
