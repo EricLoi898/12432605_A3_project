@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class spawning : MonoBehaviour
 {
-    public GameObject prefab;
+    private float spawnSpeed = 0.8f;
+    private Vector3 spawnPos;
+    private int[] x_axes = {10, -10};
+    private int[] y_axes = {6, -6};
+
+    public GameObject[] prefabs;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +19,21 @@ public class spawning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     
     void spawn()
     {
-        
-        Instantiate(prefab, new Vector3(Random.Range(-8f, 8f), Random.Range(-4f, 4f), 0), Quaternion.identity);
-        Invoke("spawn",2);
+        //Spawn asteroids at the border of the playfield
+        if(Random.Range(0,2)== 0)
+        {
+            spawnPos = new Vector3(x_axes[Random.Range(0, 2)], Random.Range(-6f, 6f));
+        }
+        else
+        {
+            spawnPos = new Vector3(Random.Range(-10f, 10f), y_axes[Random.Range(0, 2)]);
+        }      
+        Instantiate(prefabs[Random.Range(0,3)], spawnPos, Quaternion.identity);
+        //Call the function itself after a period   
+        Invoke("spawn", spawnSpeed);
     }
 }
