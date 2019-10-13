@@ -5,7 +5,7 @@ using UnityEngine;
 public class projectile : MonoBehaviour
 {
     private Vector3 moveStep;
-    private float speed = 50f;
+    private float speed = 40f;
     public GameObject explosionSound;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + moveStep * speed * Time.deltaTime;
+        transform.position = transform.position + moveStep * speed * Time.unscaledDeltaTime;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

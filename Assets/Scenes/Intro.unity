@@ -1231,7 +1231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 766, y: 175}
+  m_AnchoredPosition: {x: 756, y: 175}
   m_SizeDelta: {x: 1200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1451420407
@@ -1269,7 +1269,9 @@ MonoBehaviour:
     m_LineSpacing: 1.5
   m_Text: 'Ammo:
 
-    Increase attack speed
+    Increase
+
+    attack speed
 
 '
 --- !u!222 &1451420408

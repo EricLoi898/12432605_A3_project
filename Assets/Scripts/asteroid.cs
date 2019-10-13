@@ -54,6 +54,12 @@ public class asteroid : MonoBehaviour
         {
             Destroy(gameObject);
         }
+  
+
+    }
+
+    void FixedUpdate()
+    {
         if (HP == 0)
         {
             //Add score based on the size of asteroids
@@ -78,7 +84,6 @@ public class asteroid : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
     }
 
     void OnCollisionEnter2D(Collision2D collision)

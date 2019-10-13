@@ -38,14 +38,14 @@ public class status : MonoBehaviour
         {
             HP -= 1;
             Instantiate(explosionSound);//Instantiate the soundManager gameobject
-            Destroy(collision.gameObject, 0.2f);
+            Destroy(collision.gameObject);
             Invoke("endGame", 3);//End game after 3 seconds
         }
         if (collision.gameObject.tag == "spanner")//Check whether the collision object is an item
         {
             HP += 1;
             Instantiate(pickupSound);//Instantiate the soundManager gameobject
-            Destroy(collision.gameObject, 0.2f);
+            Destroy(collision.gameObject);
         }
         if (collision.gameObject.tag == "ammo")//Check whether the collision object is an item
         {

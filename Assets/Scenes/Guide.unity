@@ -188,8 +188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 530.8778, y: -632.3242}
-  m_SizeDelta: {x: 3020, y: 200}
+  m_AnchoredPosition: {x: 521, y: -663}
+  m_SizeDelta: {x: 3020, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &137934300
 MonoBehaviour:
@@ -228,7 +228,11 @@ MonoBehaviour:
 
     Move cursor to rotate
 
-    Left Click or Hold it to shoot'
+    Left Click or Hold it to shoot
+
+    Press Space to use bullet time
+
+    *You have amount of 5 sec'
 --- !u!222 &137934301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2004,7 +2008,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 527, y: -897}
+  m_AnchoredPosition: {x: 527, y: -943}
   m_SizeDelta: {x: 206.7, y: 282.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1722623644
