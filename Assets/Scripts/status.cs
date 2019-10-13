@@ -9,6 +9,7 @@ public class status : MonoBehaviour
     private int HP = 10;
     public static int score = 0;
     public GameObject explosionSound;
+    public GameObject pickupSound;
     private UnityEngine.UI.Text HP_txt;
     private UnityEngine.UI.Text score_txt;
     // Start is called before the first frame update
@@ -39,6 +40,12 @@ public class status : MonoBehaviour
             Instantiate(explosionSound);//Instantiate the soundManager gameobject
             Destroy(collision.gameObject, 0.2f);
             Invoke("endGame", 3);//End game after 3 seconds
+        }
+        if (collision.gameObject.tag == "item")//Check whether the collision object is an item
+        {
+            HP += 1;
+            Instantiate(pickupSound);//Instantiate the soundManager gameobject
+            Destroy(collision.gameObject, 0.2f);
         }
     }
 

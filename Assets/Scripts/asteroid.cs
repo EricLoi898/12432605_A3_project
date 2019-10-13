@@ -6,7 +6,7 @@ public class asteroid : MonoBehaviour
 {
     private Vector3 spawnPos;
     private Vector3 target;
-    private float speed = 5f;
+    private float speed = 7.5f;
     private int HP;
     private status status;
     private string sprite_name;
@@ -62,6 +62,7 @@ public class asteroid : MonoBehaviour
                 status.addScore(50);
                 crack(0);
                 crack(1);
+                drop();
                 Destroy(gameObject);
             }
             else if (sprite_name == "asteroid_1")
@@ -86,8 +87,7 @@ public class asteroid : MonoBehaviour
             int code = Random.Range(0, 4);
 
             string collision_name = collision.gameObject.GetComponent<SpriteRenderer>().sprite.name;
-            string obj_name = gameObject.GetComponent<SpriteRenderer>().sprite.name;
-            determineCol(obj_name, collision_name);
+            determineCol(collision_name);
             switch (code)
             {
                 case 0:
@@ -106,51 +106,51 @@ public class asteroid : MonoBehaviour
         }
     }
 
-    private void determineCol(string obj_name, string collision_name)
+    private void determineCol(string collision_name)
     {
         //Change the speed of the asteroids based on the size of them
-        if (obj_name == "asteroids_0")
+        if (sprite_name == "asteroid_0")
         {
             switch (collision_name)
             {
-                case "asteroids_0":
-                    speed = 5f;
+                case "asteroid_0":
+
                     break;
-                case "asteroids_1":
-                    speed = 4f;
+                case "asteroid_1":
+                    speed -= 1f;
                     break;
-                case "asteroids_2":
-                    speed = 3f;
+                case "asteroid_2":
+                    speed -= 2f;
                     break;
             }
         }
-        else if (obj_name == "asteroids_1")
+        else if (sprite_name == "asteroid_1")
         {
             switch (collision_name)
             {
-                case "asteroids_0":
-                    speed = 6f;
+                case "asteroid_0":
+                    speed += 1f;
                     break;
-                case "asteroids_1":
-                    speed = 5f;
+                case "asteroid_1":
+
                     break;
-                case "asteroids_2":
-                    speed = 4f;
+                case "asteroid_2":
+                    speed -= 1f;
                     break;
             }
         }
-        else if (obj_name == "asteroids_2")
+        else if (sprite_name == "asteroid_2")
         {
             switch (collision_name)
             {
-                case "asteroids_0":
-                    speed = 7f;
+                case "asteroid_0":
+                    speed += 2f;
                     break;
-                case "asteroids_1":
-                    speed = 6f;
+                case "asteroid_1":
+                    speed += 1f;
                     break;
-                case "asteroids_2":
-                    speed = 5f;
+                case "asteroid_2":
+
                     break;
             }
         }
@@ -158,7 +158,17 @@ public class asteroid : MonoBehaviour
 
     void crack(int code)
     {
-        Instantiate(prefabs[0], transform.position, Quaternion.identity);//Crack into smaller asteroids
+        Instantiate(prefabs[code], transform.position, Quaternion.identity);//Crack into smaller asteroids
+    }
+
+    void drop()
+    {
+        if (sprite_name == "asteroid_0") { }
+        int code = Random.Range(0, 5);
+        if(code == 0)
+        {
+            Instantiate(prefabs[2], transform.position, Quaternion.identity);//Drop a healing
+        }
     }
 
     public void takeDamage() {

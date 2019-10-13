@@ -137,9 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8903ce1d347ac914abdabdba0f530caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 100
-  score: 0
   explosionSound: {fileID: 2577670588304935086, guid: 24076d96f7dee984e95acfc314fb2537,
+    type: 3}
+  pickupSound: {fileID: 8632927155178639018, guid: 6070d32298866d84fac7c9c7468a033f,
     type: 3}
 --- !u!60 &700729064
 PolygonCollider2D:

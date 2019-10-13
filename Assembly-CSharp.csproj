@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\asteroid.cs" />
+    <Compile Include="Assets\Scripts\item.cs" />
     <Compile Include="Assets\Scripts\menuManager.cs" />
     <Compile Include="Assets\Scripts\projectile.cs" />
     <Compile Include="Assets\Scripts\showScore.cs" />

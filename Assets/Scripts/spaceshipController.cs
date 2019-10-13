@@ -10,6 +10,9 @@ public class spaceshipController : MonoBehaviour
     public GameObject beam;
     public GameObject explosionSound;
     private Vector3 mouse;
+    private float fireRate = 0.05f;
+    private float nextFire = 0.0f;
+    private bool CanShoot = true;
 
     // Start is called before the first frame update
     void Start()
@@ -50,12 +53,29 @@ public class spaceshipController : MonoBehaviour
         player.up = direction;
 
         //Fire
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0) && Time.time > nextFire)
         {
+            Shoot();
+        }
+    }
+
+
+    void Shoot()
+    {
+        if (CanShoot)
+        {
+            CanShoot = false;
             Instantiate(beam, player.position, Quaternion.identity);//Create a projectile
             AudioSource sound = Instantiate(explosionSound).GetComponent<AudioSource>();//Instantiate the soundManager gameobject
             sound.volume = 0.15f;
             sound.pitch = 2f;
+            StartCoroutine(ShootDelay(fireRate));//Limit the time of shots during a period
         }
+    }
+
+    IEnumerator ShootDelay(float fireRate)
+    {
+        yield return new WaitForSeconds(fireRate);
+        CanShoot = true;
     }
 }
