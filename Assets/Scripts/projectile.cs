@@ -5,7 +5,7 @@ using UnityEngine;
 public class projectile : MonoBehaviour
 {
     private Vector3 moveStep;
-    private float speed = 20f;
+    private float speed = 50f;
     public GameObject explosionSound;
     // Start is called before the first frame update
     void Start()

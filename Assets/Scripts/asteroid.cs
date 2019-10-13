@@ -163,11 +163,16 @@ public class asteroid : MonoBehaviour
 
     void drop()
     {
-        if (sprite_name == "asteroid_0") { }
-        int code = Random.Range(0, 5);
-        if(code == 0)
+        if (sprite_name == "asteroid_0") {
+        int code1 = Random.Range(0, 5);
+        int code2 = Random.Range(0, 10);
+        if (code1 == 0)
         {
-            Instantiate(prefabs[2], transform.position, Quaternion.identity);//Drop a healing
+            Instantiate(prefabs[2], transform.position, Quaternion.identity);//Drop a spanner
+        }else if (code2 == 0)
+        {
+            Instantiate(prefabs[3], transform.position, Quaternion.identity);//Drop an ammo
+        }
         }
     }
 

@@ -41,9 +41,21 @@ public class status : MonoBehaviour
             Destroy(collision.gameObject, 0.2f);
             Invoke("endGame", 3);//End game after 3 seconds
         }
-        if (collision.gameObject.tag == "item")//Check whether the collision object is an item
+        if (collision.gameObject.tag == "spanner")//Check whether the collision object is an item
         {
             HP += 1;
+            Instantiate(pickupSound);//Instantiate the soundManager gameobject
+            Destroy(collision.gameObject, 0.2f);
+        }
+        if (collision.gameObject.tag == "ammo")//Check whether the collision object is an item
+        {
+            if (spaceshipController.fireRate > 0.02f) {
+                spaceshipController.addSpeed(); 
+            }
+            else
+            {
+                addScore(1000);//Add 1000 point when reached the limitaion of speed
+            }
             Instantiate(pickupSound);//Instantiate the soundManager gameobject
             Destroy(collision.gameObject, 0.2f);
         }

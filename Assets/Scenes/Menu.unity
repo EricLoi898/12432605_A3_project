@@ -740,7 +740,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Scene1
+  m_Text: Play
 --- !u!222 &1242756141
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 1659656938}
   - component: {fileID: 1659656937}
   m_Layer: 5
-  m_Name: Scene1
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -951,7 +951,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1317409248}
-        m_MethodName: GotoMainScene
+        m_MethodName: GotoIntroScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

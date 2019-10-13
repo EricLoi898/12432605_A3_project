@@ -7,7 +7,8 @@ TagManager:
   - asteroid
   - background
   - projectile
-  - item
+  - spanner
+  - ammo
   layers:
   - Default
   - TransparentFX

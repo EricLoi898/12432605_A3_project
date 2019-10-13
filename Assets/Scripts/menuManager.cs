@@ -7,14 +7,21 @@ public class menuManager : MonoBehaviour
 {
     public void GotoMainScene()
     {
-        SceneManager.LoadScene("scene1");
+        SceneManager.LoadScene("Scene1");
     }
 
     public void GotoMenuScene()
     {
-        SceneManager.LoadScene("menu");
+        SceneManager.LoadScene("Menu");
     }
-
+    public void GotoIntroScene()
+    {
+        SceneManager.LoadScene("Intro");
+    }
+    public void GotoGuideScene()
+    {
+        SceneManager.LoadScene("Guide");
+    }
     public void Exit()
     {
         Application.Quit();

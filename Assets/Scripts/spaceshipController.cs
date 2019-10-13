@@ -10,7 +10,7 @@ public class spaceshipController : MonoBehaviour
     public GameObject beam;
     public GameObject explosionSound;
     private Vector3 mouse;
-    private float fireRate = 0.05f;
+    public static float fireRate = 0.25f;
     private float nextFire = 0.0f;
     private bool CanShoot = true;
 
@@ -77,5 +77,10 @@ public class spaceshipController : MonoBehaviour
     {
         yield return new WaitForSeconds(fireRate);
         CanShoot = true;
+    }
+
+    public static void addSpeed()
+    {
+        fireRate /= 1.5f;
     }
 }
